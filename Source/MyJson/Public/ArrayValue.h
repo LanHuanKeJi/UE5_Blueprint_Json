@@ -37,7 +37,8 @@ public:
 			Result += ",";
 		}
 
-		Result = Result.LeftChop(1);
+		if(Values.Num() > 0)
+			Result = Result.LeftChop(1);
 
 		Result += FString("]");
 
