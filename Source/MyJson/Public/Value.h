@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(BlueprintType)
+UCLASS()
 class MYJSON_API UValue : public UObject
 {
 	GENERATED_BODY()
