@@ -57,10 +57,23 @@ UValue* UMyJsonBPLibrary::MakeArrayValue(TArray<UValue*> InValues)
 	return Value;
 }
 
-UValue* UMyJsonBPLibrary::ParseValue(FString InString)
+UValue* UMyJsonBPLibrary::ParseObjectValue(FString InString)
 {
 	UParser* Parser = NewObject<UParser>();
 	return Parser->Parse(InString);
+}
+
+TArray<UValue*> UMyJsonBPLibrary::ParseArrayValue(FString InString)
+{
+	UParser* Parser = NewObject<UParser>();
+	UValue* Value = Parser->Parse(InString);
+	UArrayValue* ArrayValue = Cast<UArrayValue>(Value);
+	if (!IsValid(ArrayValue))
+	{
+		return TArray<UValue*>();
+	}
+
+	return ArrayValue->GetValue();
 }
 
 FString UMyJsonBPLibrary::GetStringValue(UValue* InValue, const FString& InKey,bool& bSuccess)
