@@ -46,8 +46,11 @@ class UMyJsonBPLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Make Array Value", Keywords = "Make Array Value"), Category = "MyJson")
 	static UValue* MakeArrayValue(TArray<UValue*> InValues);
 
-	UFUNCTION(BlueprintPure, meta = (DisplayName = "Parse Value", Keywords = "Parse Value"), Category = "MyJson")
-	static UValue* ParseValue(FString InString);
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Parse Object Value", Keywords = "Parse Object Value"), Category = "MyJson")
+	static UValue* ParseObjectValue(FString InString);
+
+	UFUNCTION(BlueprintPure, meta = (DisplayName = "Parse Array Value", Keywords = "Parse Array Value"), Category = "MyJson")
+	static TArray<UValue*> ParseArrayValue(FString InString);
 
 	UFUNCTION(BlueprintPure, meta = (DisplayName = "Get String Value", Keywords = "Get String Value"), Category = "MyJson")
 	static FString GetStringValue(UValue* InValue, const FString& InKey, bool& bSuccess);
